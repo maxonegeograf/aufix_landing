@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aufix - aplikacja mobilna dla właścicieli aut">
+    <title>Aufix - Trzymaj swoje auto w kieszeni</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="images/car-icon.png" alt="Aufix" class="logo-icon">
+                    <span class="logo-text">AUFIX</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link active">Właścicielom aut</a></li>
+                    <li><a href="warsztatom.html" class="nav-link">Warsztatom</a></li>
+                    <li><a href="inwestorom.html" class="nav-link">Inwestorom</a></li>
+                    <li><a href="kontakty.html" class="nav-link">Kontakt</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle-top animate-fade-in">
+                    Właścicielom aut
+                </p>
+                <h1 class="hero-title animate-fade-in delay-1">
+                    Miej swoje auto w kieszeni 😉
+                </h1>
+                <p class="hero-description animate-fade-in delay-2">
+                    Kompleksowa aplikacja mobilna do zarządzania Twoim samochodem. Historia serwisowania, przypomnienia o przeglądach i pełna kontrola nad wydatkami.
+                </p>
+                <div class="hero-buttons animate-fade-in delay-3">
+                    <div class="email-input-group">
+                        <input type="email" id="heroEmail" class="email-input" placeholder="jan.kowalski@gmail.com" required>
+                        <button type="button" class="btn btn-primary btn-attached" onclick="submitWaitlist('heroEmail')">Zapisz się na listę oczekujących</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Preview Section -->
+    <section class="app-preview">
+        <div class="container">
+            <div class="app-preview-grid">
+                <div class="app-preview-content">
+                    <h2 class="section-title animate-on-scroll">Wszystko, czego potrzebujesz w jednej aplikacji</h2>
+                    <div class="feature-tabs">
+                        <div class="feature-tab active" data-screen="1">
+                            <div class="tab-progress"></div>
+                            <div class="tab-content">
+                                <h3>Znajdź i zapisz się na serwis</h3>
+                                <p>Szybko znajdź sprawdzony warsztat w Twojej okolicy i umów wizytę w kilka kliknięć</p>
+                            </div>
+                        </div>
+                        <div class="feature-tab" data-screen="2">
+                            <div class="tab-progress"></div>
+                            <div class="tab-content">
+                                <h3>Trzymaj info o swoim samochodzie w jednym miejscu</h3>
+                                <p>Cała historia serwisowa, dokumenty i notatki zawsze pod ręką</p>
+                            </div>
+                        </div>
+                        <div class="feature-tab" data-screen="3">
+                            <div class="tab-progress"></div>
+                            <div class="tab-content">
+                                <h3>Zarządzaj przypomnieniami i wydatkami</h3>
+                                <p>Śledź koszty, otrzymuj powiadomienia o przeglądach i nigdy nic nie przegap</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-preview-screens">
+                    <div class="screens-container">
+                        <img src="images/1_screen.png" alt="App Screen 1" class="screen active" data-screen="1">
+                        <img src="images/2_screen.png" alt="App Screen 2" class="screen" data-screen="2">
+                        <img src="images/3_screen.png" alt="App Screen 3" class="screen" data-screen="3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Early Access CTA Section -->
+    <section class="early-access-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title animate-on-scroll">Zapisz się do końca 2025 roku</h2>
+                <p class="cta-subtitle animate-on-scroll">i otrzymaj dostęp jako pierwszy na początku 2026 roku</p>
+                <div class="cta-note animate-on-scroll">
+                    <span class="note-star">*</span>
+                    <span>Aplikacja dla właścicieli aut jest bezpłatna</span>
+                </div>
+                <div class="email-input-group cta-email-group animate-on-scroll">
+                    <input type="email" id="ctaEmail" class="email-input" placeholder="jan.kowalski@gmail.com" required>
+                    <button type="button" class="btn btn-primary btn-attached" onclick="submitWaitlist('ctaEmail')">Zapisz się na listę oczekujących</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <img src="images/car-icon.png" alt="Aufix" class="logo-icon">
+                        <span class="logo-text">AUFIX</span>
+                    </div>
+                    <p class="footer-description">
+                        Nowoczesne rozwiązanie dla warsztatów samochodowych i ich klientów
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Produkty</h4>
+                    <ul>
+                        <li><a href="index.html">Dla właścicieli aut</a></li>
+                        <li><a href="warsztatom.html">Dla warsztatów</a></li>
+                        <li><a href="inwestorom.html">Dla inwestorów</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Firma</h4>
+                    <ul>
+                        <li><a href="index.html">Strona główna</a></li>
+                        <li><a href="kontakty.html">Kontakt</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li>📧 info@aufix.pl</li>
+                        <li>📞 +48 123 456 789</li>
+                        <li>📍 Warszawa, Polska</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Aufix. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        ↑
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
