@@ -19,7 +19,6 @@
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="nav-link active">Właścicielom aut</a></li>
                     <li><a href="warsztatom.html" class="nav-link">Warsztatom</a></li>
-                    <li><a href="inwestorom.html" class="nav-link">Inwestorom</a></li>
                     <li><a href="kontakty.html" class="nav-link">Kontakt</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
@@ -36,20 +35,38 @@
         <div class="container">
             <div class="hero-content">
                 <p class="hero-subtitle-top animate-fade-in">
-                    Właścicielom aut
+                    Start na początku 2026 roku
                 </p>
                 <h1 class="hero-title animate-fade-in delay-1">
                     Miej swoje auto w kieszeni 😉
                 </h1>
-                <p class="hero-description animate-fade-in delay-2">
-                    Kompleksowa aplikacja mobilna do zarządzania Twoim samochodem. Historia serwisowania, przypomnienia o przeglądach i pełna kontrola nad wydatkami.
+                <p class="cta-subtitle animate-on-scroll">
+                    Kompleksowa aplikacja mobilna do zarządzania Twoim samochodem. Zapisy na przegląd, historia serwisowania, przypomnienia i kontrola nad wydatkami
                 </p>
                 <div class="hero-buttons animate-fade-in delay-3">
                     <div class="email-input-group">
                         <input type="email" id="heroEmail" class="email-input" placeholder="jan.kowalski@gmail.com" required>
-                        <button type="button" class="btn btn-primary btn-attached" onclick="submitWaitlist('heroEmail')">Zapisz się na listę oczekujących</button>
+                        <button type="button" class="btn btn-primary btn-attached" onclick="submitWaitlist('heroEmail')">Zapisz się</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Highlight Section -->
+    <section class="map-highlight">
+        <div class="container map-highlight-layout">
+            <div class="map-highlight-image animate-on-scroll">
+                <img src="images/aufix_map.png" alt="Aufix mapa warsztatów" class="map-highlight-img">
+            </div>
+            <div class="map-highlight-text animate-on-scroll">
+                <h2 class="hero-title hero-title-compact hero-title-wrap animate-on-scroll">Znajdź szybko idealny serwis</h2>
+                <ul class="map-highlight-list animate-on-scroll cta-subtitle">
+                    <li><span class="map-benefit-arrow"></span><span class="map-benefit-text">Nie wiesz, gdzie jest najbliższy warsztat?</span></li>
+                    <li><span class="map-benefit-arrow"></span><span class="map-benefit-text">Nie chcesz dzwonić do każdego z osobna?</span></li>
+                    <li><span class="map-benefit-arrow"></span><span class="map-benefit-text">Nie orientujesz się w cenach usług?</span></li>
+                </ul>
+                <p class="map-highlight-availability animate-on-scroll">Aplikacja Aufix jest dla Ciebie. Dostępna do pobrania na <span class="accent-highlight">początku 2026 roku</span> najpierw w <span class="accent-highlight">Warszawie</span></p>
             </div>
         </div>
     </section>
@@ -64,21 +81,21 @@
                         <div class="feature-tab active" data-screen="1">
                             <div class="tab-progress"></div>
                             <div class="tab-content">
-                                <h3>Znajdź i zapisz się na serwis</h3>
+                                <h3>1. Znajdź i zapisz się na serwis 🔥🔥🔥</h3>
                                 <p>Szybko znajdź sprawdzony warsztat w Twojej okolicy i umów wizytę w kilka kliknięć</p>
                             </div>
                         </div>
                         <div class="feature-tab" data-screen="2">
                             <div class="tab-progress"></div>
                             <div class="tab-content">
-                                <h3>Trzymaj info o swoim samochodzie w jednym miejscu</h3>
+                                <h3>2. Miej info o swoim samochodzie pod ręką</h3>
                                 <p>Cała historia serwisowa, dokumenty i notatki zawsze pod ręką</p>
                             </div>
                         </div>
                         <div class="feature-tab" data-screen="3">
                             <div class="tab-progress"></div>
                             <div class="tab-content">
-                                <h3>Zarządzaj przypomnieniami i wydatkami</h3>
+                                <h3>3. Zarządzaj przypomnieniami i wydatkami</h3>
                                 <p>Śledź koszty, otrzymuj powiadomienia o przeglądach i nigdy nic nie przegap</p>
                             </div>
                         </div>
@@ -101,13 +118,13 @@
             <div class="cta-content">
                 <h2 class="cta-title animate-on-scroll">Zapisz się do końca 2025 roku</h2>
                 <p class="cta-subtitle animate-on-scroll">i otrzymaj dostęp jako pierwszy na początku 2026 roku</p>
+                <div class="email-input-group cta-email-group animate-on-scroll">
+                    <input type="email" id="ctaEmail" class="email-input" placeholder="jan.kowalski@gmail.com" required>
+                    <button type="button" class="btn btn-primary btn-attached" onclick="submitWaitlist('ctaEmail')">Zapisz się</button>
+                </div>
                 <div class="cta-note animate-on-scroll">
                     <span class="note-star">*</span>
                     <span>Aplikacja dla właścicieli aut jest bezpłatna</span>
-                </div>
-                <div class="email-input-group cta-email-group animate-on-scroll">
-                    <input type="email" id="ctaEmail" class="email-input" placeholder="jan.kowalski@gmail.com" required>
-                    <button type="button" class="btn btn-primary btn-attached" onclick="submitWaitlist('ctaEmail')">Zapisz się na listę oczekujących</button>
                 </div>
             </div>
         </div>
@@ -132,7 +149,6 @@
                     <ul>
                         <li><a href="index.html">Dla właścicieli aut</a></li>
                         <li><a href="warsztatom.html">Dla warsztatów</a></li>
-                        <li><a href="inwestorom.html">Dla inwestorów</a></li>
                     </ul>
                 </div>
                 
@@ -141,22 +157,21 @@
                     <ul>
                         <li><a href="index.html">Strona główna</a></li>
                         <li><a href="kontakty.html">Kontakt</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Kontakt</h4>
                     <ul>
-                        <li>📧 info@aufix.pl</li>
-                        <li>📞 +48 123 456 789</li>
+                        <li>📧 biuro@aufix.pl</li>
+                        <li>📞 +48 780 779 546</li>
                         <li>📍 Warszawa, Polska</li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Aufix. Wszelkie prawa zastrzeżone.</p>
+                <p>&copy; 2025 Aufix. Wszelkie prawa zastrzeżone.</p>
+                <div class="footer-made-in"><span class="footer-flag" role="img" aria-label="Polska"></span>Zrobione w Polsce</div>
             </div>
         </div>
     </footer>

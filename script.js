@@ -215,6 +215,7 @@ navLinks.forEach(link => {
 
 // Navbar scroll effect
 const navbar = document.querySelector('.navbar');
+const themeTriggerSection = document.querySelector('.crm-preview') || document.querySelector('.features');
 let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
@@ -224,6 +225,15 @@ window.addEventListener('scroll', () => {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
+    }
+
+    if (themeTriggerSection) {
+        const triggerTop = themeTriggerSection.offsetTop;
+        if (currentScroll + 80 >= triggerTop) {
+            navbar.classList.add('over-features');
+        } else {
+            navbar.classList.remove('over-features');
+        }
     }
     
     lastScroll = currentScroll;
@@ -266,6 +276,17 @@ scrollToTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+const pricingEarlyBirdBtn = document.getElementById('pricingEarlyBirdBtn');
+
+if (pricingEarlyBirdBtn) {
+    pricingEarlyBirdBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
 // Contact form handling
 const contactForm = document.getElementById('contactForm');

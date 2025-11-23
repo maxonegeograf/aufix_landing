@@ -7,7 +7,7 @@
     <title>Warsztatom - Aufix</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-warsztaty">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -19,7 +19,6 @@
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="nav-link">Właścicielom aut</a></li>
                     <li><a href="warsztatom.html" class="nav-link active">Warsztatom</a></li>
-                    <li><a href="inwestorom.html" class="nav-link">Inwestorom</a></li>
                     <li><a href="kontakty.html" class="nav-link">Kontakt</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
@@ -32,65 +31,102 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero hero-warsztaty">
         <div class="container">
             <div class="hero-content">
                 <p class="hero-subtitle-top animate-fade-in">
-                    Zapisz się na listę oczekiwań
+                    Pół roku za darmo 🔥
                 </p>
-                <h1 class="hero-title animate-fade-in delay-1">
-                    Zarządzaj warsztatem efektywnie
+                <h1 class="hero-title hero-title-wrap animate-fade-in delay-1">
+                    Zarządzaj warsztatem<br>efektywnie
                 </h1>
-                <p class="hero-description animate-fade-in delay-2">
-                    Kompleksowy system CRM dla warsztatów samochodowych. Zarządzanie klientami, rezerwacjami, magazynem i finansami w jednym miejscu.
+                <p class="cta-subtitle animate-fade-in delay-2">
+                    Zdobądź nowych klientów dzięki Aufix. Zapisz się do końca 2025 roku, aby otrzymać pół roku dostępu do systemu za darmo!
                 </p>
-                <div class="hero-buttons animate-fade-in delay-3">
-                    <a href="kontakty.html" class="btn btn-primary">Zapisz się na listę oczekiwań</a>
-                    <a href="index.html" class="btn btn-secondary">Dla właścicieli aut</a>
+                <div class="workshop-form animate-fade-in delay-3">
+                    <div class="workshop-input-group">
+                        <input type="text" class="workshop-input" placeholder="Nazwa firmy" aria-label="Nazwa firmy">
+                        <input type="tel" class="workshop-input" placeholder="Numer telefonu" aria-label="Numer telefonu">
+                    </div>
+                    <button type="button" class="btn btn-primary workshop-submit">Zapisz się</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <!-- CRM Preview Section -->
+    <section class="crm-preview">
         <div class="container">
-            <div class="products-grid">
-                <div class="product-card animate-on-scroll">
-                    <div class="product-icon">💼</div>
-                    <h3 class="product-title">System CRM dla serwisu</h3>
-                    <p class="product-description">
-                        Kompleksowy system zarządzania warsztatem samochodowym z obsługą 
-                        zamówień, bazą klientów, magazynem i finansami
-                    </p>
-                    <ul class="product-features">
-                        <li>✓ Zarządzanie rezerwacjami i zamówieniami</li>
-                        <li>✓ Baza klientów i historia obsługi</li>
-                        <li>✓ Ewidencja części i operacje magazynowe</li>
-                        <li>✓ Analityka finansowa i raportowanie</li>
-                        <li>✓ Kalendarz obłożenia mechaników</li>
-                        <li>✓ Powiadomienia SMS i email</li>
-                    </ul>
-                    <a href="kontakty.html" class="btn btn-outline">Dowiedz się więcej</a>
+            <h2 class="hero-title hero-title-compact hero-title-wrap crm-preview-title animate-on-scroll">Kompleksowy system CRM dla warsztatów</h2>
+            <div class="crm-preview-image">
+                <img src="images/aufix_crm.png" alt="Aufix CRM" class="crm-preview-img">
+            </div>
+            <ul class="crm-benefits-list animate-on-scroll">
+                <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Przyjmuj i przeglądaj zgłoszenia od klientów</span></li>
+                <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Zarządzaj swoim dniem od 0 do 24 godzin</span></li>
+                <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Dodawaj do 4 stanowisk pracy</span></li>
+                <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Blokuj slot czasowy przed rezerwacją, gdy trzeba</span></li>
+                <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Komunikuj się z klientami i odpowiadaj na pytania</span></li>
+                <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Aktualizuj usługi, które możesz zrealizować</span></li>
+            </ul>
+            <div class="crm-benefits-rows">
+                <div class="crm-benefits-row animate-on-scroll">
+                    <div class="crm-benefits-row-text">
+                        <h3>Wszystkie powiadomienia w jednym miejscu</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae turpis in lectus ullamcorper fermentum vitae sed orci. Integer semper, justo vitae ultricies auctor, mauris nibh tempus massa, eu facilisis tellus nisi ac est.</p>
+                    </div>
+                    <div class="crm-benefits-row-image">
+                        <img src="images/aufix_notifications.png" alt="Powiadomienia Aufix" loading="lazy">
+                    </div>
                 </div>
+                <div class="crm-benefits-row animate-on-scroll">
+                    <div class="crm-benefits-row-image">
+                        <img src="images/aufix_profile.png" alt="Profil użytkownika Aufix" loading="lazy">
+                    </div>
+                    <div class="crm-benefits-row-text">
+                        <h3>Profil warsztatu zawsze pod ręką</h3>
+                        <p> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="product-card animate-on-scroll">
-                    <div class="product-icon">📊</div>
-                    <h3 class="product-title">Analityka i raporty</h3>
-                    <p class="product-description">
-                        Szczegółowe raporty i statystyki w czasie rzeczywistym 
-                        dla lepszego zarządzania Twoim biznesem
-                    </p>
-                    <ul class="product-features">
-                        <li>✓ Dashboard w czasie rzeczywistym</li>
-                        <li>✓ Raporty finansowe</li>
-                        <li>✓ Analiza efektywności pracowników</li>
-                        <li>✓ Statystyki sprzedaży</li>
-                        <li>✓ Prognozowanie przychodów</li>
-                        <li>✓ Eksport danych do Excel</li>
-                    </ul>
-                    <a href="kontakty.html" class="btn btn-outline">Dowiedz się więcej</a>
-                </div>
+    <!-- Pricing Section -->
+    <section class="pricing-warsztaty">
+        <div class="container pricing-layout">
+            <div class="pricing-intro animate-on-scroll">
+                <h2 class="pricing-headline">Tylko <span class="pricing-headline-em">99 zł</span> dzieli cię od nowych klientów</h2>
+                <p class="pricing-subheadline">Zapisz się do końca 2025 roku, aby otrzymać pierwsze pół roku za darmo!</p>
+                <ul class="pricing-benefits">
+                    <li><span class="benefit-dot"></span>CRM z historią klientów</li>
+                    <li><span class="benefit-dot"></span>Inteligentny grafik wizyt</li>
+                    <li><span class="benefit-dot"></span>Zadania dla zespołu</li>
+                    <li><span class="benefit-dot"></span>Automatyczne przypomnienia</li>
+                    <li><span class="benefit-dot"></span>Profil warsztatu online</li>
+                </ul>
+            </div>
+            <div class="pricing-cards animate-on-scroll">
+                <article class="pricing-card">
+                    <div class="pricing-badge">Dla zapisanych w 2025</div>
+                    <h3 class="pricing-title">Dla sprytnych</h3>
+                    <p class="pricing-tagline">Wejście do Aufix bez ryzyka</p>
+                    <div class="pricing-price pricing-price-highlight">0 zł<span class="pricing-period">/mies.</span></div>
+                    <div class="pricing-note">przez pierwsze 6 miesięcy</div>
+                    <div class="pricing-divider"></div>
+                    <p class="pricing-regular">Potem: <strong>99 zł / mies.</strong></p>
+                    <button class="btn btn-primary pricing-btn" id="pricingEarlyBirdBtn">Zapisz sie</button>
+                </article>
+                <article class="pricing-card pricing-card-featured">
+                    <div class="pricing-badge badge-highlight">Standard od 2026</div>
+                    <h3 class="pricing-title">Standard</h3>
+                    <p class="pricing-tagline">Pełen pakiet narzędzi dla warsztatu</p>
+                    <div class="pricing-price">99 zł<span class="pricing-period">/mies.</span></div>
+                    <div class="pricing-note">dla nowych klientów od 2026 roku</div>
+                    <div class="pricing-divider"></div>
+                    <p class="pricing-regular">Bez dodatkowych opłat</p>
+                    <button class="btn btn-disabled pricing-btn" type="button">Niedostępne</button>
+                </article>
             </div>
         </div>
     </section>
@@ -128,7 +164,6 @@
                     <ul>
                         <li><a href="index.html">Dla właścicieli aut</a></li>
                         <li><a href="warsztatom.html">Dla warsztatów</a></li>
-                        <li><a href="inwestorom.html">Dla inwestorów</a></li>
                     </ul>
                 </div>
                 
@@ -137,7 +172,6 @@
                     <ul>
                         <li><a href="index.html">Strona główna</a></li>
                         <li><a href="kontakty.html">Kontakt</a></li>
-                        <li><a href="#">Blog</a></li>
                     </ul>
                 </div>
                 
@@ -153,6 +187,7 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2024 Aufix. Wszelkie prawa zastrzeżone.</p>
+                <div class="footer-made-in"><span class="footer-flag" role="img" aria-label="Polska"></span>Zrobione w Polsce</div>
             </div>
         </div>
     </footer>
