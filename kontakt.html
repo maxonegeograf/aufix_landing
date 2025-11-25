@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Skontaktuj się z zespołem Aufix. Formularz kontaktowy, e-mail biuro@aufix.pl i numer telefonu do szybkiego wsparcia.">
+    <meta name="keywords" content="Aufix kontakt, wsparcie Aufix, biuro Aufix, formularz kontaktowy, e-mail Aufix, telefon Aufix">
+    <title>Kontakt - Aufix</title>
+    <meta property="og:title" content="Kontakt z Aufix - skontaktuj się z nami">
+    <meta property="og:description" content="Napisz lub zadzwoń do zespołu Aufix i dowiedz się, jak nasza platforma ułatwia życie kierowcom i warsztatom">
+    <meta property="og:image" content="images/owners_image.png">
+    <meta property="og:url" content="https://aufix.pl/kontakt">
+    <link rel="icon" type="image/png" href="images/car-icon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-kontakt">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/car-icon.png" alt="Aufix" class="logo-icon">
+                    <span class="logo-text">AUFIX</span>
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Właścicielom aut</a></li>
+                    <li><a href="warsztatom.html" class="nav-link">Warsztatom</a></li>
+                    <li><a href="kontakt.html" class="nav-link active">Kontakt</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle-top animate-fade-in">
+                    Kontakt
+                </p>
+                <h1 class="hero-title animate-fade-in delay-1">
+                    Skontaktuj się z nami
+                </h1>
+                <p class="cta-subtitle animate-fade-in delay-2">
+                    Masz pytania? Napisz lub zostaw wiadomość, a my skontaktujemy się z Tobą jak najszybciej.
+                </p>
+                <div class="contact-scroll-indicator animate-fade-in delay-3">
+                    <span class="contact-scroll-arrow"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="contact-info">
+        <div class="container">
+            <h2 class="section-title">Nasze dane kontaktowe</h2>
+            <p class="section-subtitle">Znajdziesz je poniżej albo napisz do nas przez formularz</p>
+            <div class="contact-info-grid animate-on-scroll">
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">📧</div>
+                    <div class="contact-info-content">
+                        <h3>Email</h3>
+                        <p>biuro@aufix.pl</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">📞</div>
+                    <div class="contact-info-content">
+                        <h3>Telefon</h3>
+                        <p>+48 780 779 546</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">📍</div>
+                    <div class="contact-info-content">
+                        <h3>Adres</h3>
+                        <p>ul. Korotyńskiego 20, Warszawa</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cta-note-wrapper">
+                <div class="cta-note animate-on-scroll">
+                    <span class="note-star">*</span>
+                    <span>Na maile odpowiadamy w ciągu ~30 minut</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact contact-form-section">
+        <div class="container">
+            <h2 class="section-title">Zostaw wiadomość</h2>
+            <p class="section-subtitle">Zostaw swoją wiadomość, a my odezwiemy się do Ciebie 😊</p>
+            
+            <form class="contact-form animate-on-scroll" id="contactForm" action="forms/contact_submit.php" method="post" novalidate>
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Imię lub nazwa firmy" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="4" placeholder="Wiadomość"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Wyślij wiadomość</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="logo footer-logo">
+                        <span class="logo-text">AUFIX</span>
+                        <img src="images/car-icon.png" alt="Aufix" class="logo-icon">
+                    </div>
+                    <p class="footer-description">
+                        Nowoczesne rozwiązanie dla warsztatów samochodowych i ich klientów
+                    </p>
+                    <div class="footer-made-in"><span class="footer-made-in-text">Zrobione w Polsce</span><span class="footer-flag" role="img" aria-label="Polska"></span></div>
+                </div>
+
+                <div class="footer-right">
+                    <div class="footer-section">
+                        <h4>Strony</h4>
+                        <ul>
+                            <li><a href="index.html">Właścicielom aut</a></li>
+                            <li><a href="warsztatom.html">Warsztatom</a></li>
+                            <li><a href="kontakt.html">Kontakt</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Kontakt</h4>
+                        <ul>
+                            <li><span aria-hidden="true">📧</span> biuro@aufix.pl</li>
+                            <li><span aria-hidden="true">📞</span> +48 780 779 546</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Aufix. Wszelkie prawa zastrzeżone</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
+    <script src="script.js"></script>
+</body>
+</html>

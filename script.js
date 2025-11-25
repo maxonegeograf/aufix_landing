@@ -85,33 +85,65 @@ function startEmailAnimation() {
     });
 }
 
-// Waitlist submission function
-function submitWaitlist(inputId) {
-    const emailInput = document.getElementById(inputId);
-    const email = emailInput.value.trim();
-    
-    if (!email) {
-        alert('Proszę wpisać adres email');
-        emailInput.focus();
-        return;
-    }
-    
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Proszę wpisać poprawny adres email');
-        emailInput.focus();
-        return;
-    }
-    
-    // Here you would normally send the email to your backend
-    console.log('Email submitted:', email);
-    alert('Dziękujemy! Zapisaliśmy Cię na listę oczekiwań.');
-    emailInput.value = '';
-}
+// Waitlist submission handling
+document.addEventListener('DOMContentLoaded', () => {
+    startEmailAnimation();
 
-// Start email animation when page loads
-document.addEventListener('DOMContentLoaded', startEmailAnimation);
+    const waitlistForms = document.querySelectorAll('.waitlist-form');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    waitlistForms.forEach(form => {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const emailInput = form.querySelector('input[type="email"]');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+
+            const email = emailInput.value.trim();
+            if (!email) {
+                showNotification('Proszę wpisać adres e-mail.', 'error');
+                emailInput.focus();
+                return;
+            }
+
+            if (!emailRegex.test(email)) {
+                showNotification('Podaj poprawny adres e-mail.', 'error');
+                emailInput.focus();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Wysyłanie...';
+
+            try {
+                const formData = new FormData(form);
+                if (!formData.get('source')) {
+                    formData.set('source', form.dataset.source || 'Formularz Aufix');
+                }
+
+                const response = await fetch(form.getAttribute('action'), {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json().catch(() => ({}));
+
+                if (response.ok && result.status === 'success') {
+                    showNotification(result.message || 'Dziękujemy! Zapisaliśmy Cię na listę oczekujących.', 'success');
+                    emailInput.value = '';
+                } else {
+                    showNotification(result.message || 'Nie udało się wysłać formularza. Spróbuj ponownie.', 'error');
+                }
+            } catch (error) {
+                showNotification('Wystąpił błąd sieci. Spróbuj ponownie.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    });
+});
 
 // Feature Tabs Auto-Switching
 let currentTab = 0;
@@ -165,9 +197,11 @@ function switchTab(index) {
 function startTabRotation() {
     const tabs = document.querySelectorAll('.feature-tab');
     if (!tabs.length) return;
-    
+
+    clearInterval(tabInterval);
+
     switchTab(currentTab);
-    
+
     tabInterval = setInterval(() => {
         currentTab = (currentTab + 1) % tabs.length;
         switchTab(currentTab);
@@ -180,7 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     tabs.forEach((tab, index) => {
         tab.addEventListener('click', () => {
-            clearInterval(tabInterval);
+            if (tabInterval) {
+                clearInterval(tabInterval);
+                tabInterval = null;
+            }
             currentTab = index;
             switchTab(currentTab);
             
@@ -193,6 +230,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Start auto-rotation
     startTabRotation();
+
+    const tabRotationMedia = window.matchMedia('(max-width: 768px)');
+    tabRotationMedia.addEventListener('change', () => {
+        currentTab = 0;
+        startTabRotation();
+    });
 });
 
 // Mobile Menu Toggle
@@ -291,50 +334,108 @@ if (pricingEarlyBirdBtn) {
 // Contact form handling
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        email: document.getElementById('email').value,
-        company: document.getElementById('company').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Show loading state
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Отправка...';
-    submitBtn.disabled = true;
-    
-    // Simulate form submission (replace with actual API call)
-    try {
-        // Here you would send the data to your backend
-        // const response = await fetch('/api/contact', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(formData)
-        // });
-        
-        // Simulate delay
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        // Show success message
-        showNotification('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
-        
-        // Reset form
-        contactForm.reset();
-    } catch (error) {
-        showNotification('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
-    } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const name = (formData.get('name') || '').trim();
+        const email = (formData.get('email') || '').trim();
+        const message = (formData.get('message') || '').trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!name) {
+            showNotification('Podaj swoje imię lub nazwę firmy.', 'error');
+            return;
+        }
+
+        if (!emailRegex.test(email)) {
+            showNotification('Podaj poprawny adres e-mail.', 'error');
+            return;
+        }
+
+        if (!message) {
+            showNotification('Napisz krótką wiadomość.', 'error');
+            return;
+        }
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Wysyłanie...';
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch(contactForm.getAttribute('action'), {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json().catch(() => ({}));
+
+            if (response.ok && result.status === 'success') {
+                showNotification(result.message || 'Dziękujemy! Skontaktujemy się wkrótce.', 'success');
+                contactForm.reset();
+            } else {
+                showNotification(result.message || 'Nie udało się wysłać wiadomości. Spróbuj ponownie.', 'error');
+            }
+        } catch (error) {
+            showNotification('Wystąpił błąd sieci. Spróbuj ponownie.', 'error');
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+}
+
+// Workshop form handling
+const workshopForm = document.getElementById('workshopForm');
+
+if (workshopForm) {
+    workshopForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(workshopForm);
+        const company = (formData.get('company') || '').trim();
+        const phone = (formData.get('phone') || '').trim();
+
+        if (!company) {
+            showNotification('Podaj nazwę firmy.', 'error');
+            return;
+        }
+
+        const digitsOnly = phone.replace(/\D/g, '');
+        if (digitsOnly.length < 9) {
+            showNotification('Podaj poprawny numer telefonu.', 'error');
+            return;
+        }
+
+        const submitBtn = workshopForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Wysyłanie...';
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch(workshopForm.getAttribute('action'), {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json().catch(() => ({}));
+
+            if (response.ok && result.status === 'success') {
+                showNotification(result.message || 'Dziękujemy! Skontaktujemy się w sprawie współpracy.', 'success');
+                workshopForm.reset();
+            } else {
+                showNotification(result.message || 'Nie udało się wysłać formularza. Spróbuj ponownie.', 'error');
+            }
+        } catch (error) {
+            showNotification('Wystąpił błąd sieci. Spróbuj ponownie.', 'error');
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+}
 
 // Notification system
 const showNotification = (message, type = 'success') => {
@@ -420,27 +521,40 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Phone number formatting
-const phoneInput = document.getElementById('phone');
-phoneInput.addEventListener('input', (e) => {
-    let value = e.target.value.replace(/\D/g, '');
-    
-    if (value.length > 0) {
-        if (value.length <= 1) {
-            value = '+7 (' + value;
-        } else if (value.length <= 4) {
-            value = '+7 (' + value.substring(1);
-        } else if (value.length <= 7) {
-            value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4);
-        } else if (value.length <= 9) {
-            value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4, 7) + '-' + value.substring(7);
-        } else {
-            value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4, 7) + '-' + value.substring(7, 9) + '-' + value.substring(9, 11);
+// Phone number formatting for workshop form
+const workshopPhoneInput = document.getElementById('workshopPhone');
+
+if (workshopPhoneInput) {
+    workshopPhoneInput.addEventListener('input', (event) => {
+        let digits = event.target.value.replace(/\D/g, '');
+
+        // Remove leading country code or zero
+        if (digits.startsWith('48')) {
+            digits = digits.substring(2);
         }
-    }
-    
-    e.target.value = value;
-});
+        if (digits.startsWith('0')) {
+            digits = digits.substring(1);
+        }
+
+        digits = digits.substring(0, 9);
+
+        if (!digits.length) {
+            event.target.value = '';
+            return;
+        }
+
+        let formatted = '+48 ';
+        if (digits.length <= 3) {
+            formatted += digits;
+        } else if (digits.length <= 6) {
+            formatted += `${digits.substring(0, 3)} ${digits.substring(3)}`;
+        } else {
+            formatted += `${digits.substring(0, 3)} ${digits.substring(3, 6)} ${digits.substring(6)}`;
+        }
+
+        event.target.value = formatted.trim();
+    });
+}
 
 // Lazy loading for images (if you add images later)
 const lazyLoadImages = () => {
@@ -475,6 +589,3 @@ cards.forEach(card => {
     });
 });
 
-// Log page load
-console.log('%c🔧 Aufix Landing Page loaded successfully!', 'color: #667eea; font-size: 16px; font-weight: bold;');
-console.log('%cFor any issues, contact: info@aufix.kz', 'color: #718096;');

@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aufix - aplikacja mobilna dla właścicieli aut">
-    <title>Aufix - Trzymaj swoje auto w kieszeni</title>
+    <meta name="description" content="Aufix to mobilna aplikacja dla właścicieli aut. Rezerwuj serwis, śledź historię napraw i kontroluj wydatki na samochód w jednym miejscu">
+    <meta name="keywords" content="Aufix, aplikacja samochodowa, zarządzanie autem, przegląd techniczny, przypomnienia serwisowe, wydatki motoryzacyjne, samochody, system rezerwacji">
+    <title>Aufix - Aplikacja mobilna dla właścicieli aut</title>
+    <meta property="og:title" content="Miej swoje auto w kieszeni 😉">
+    <meta property="og:description" content="Pobierz Aufix i szybko umawiaj się na serwis, śledź koszty, przeglądy oraz przypomnienia. Dołącz do kierowców, którzy oszczędzają czas i pieniądze">
+    <meta property="og:image" content="images/owners_image.png">
+    <meta property="og:url" content="https://aufix.pl">
+    <link rel="icon" type="image/png" href="images/car-icon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,7 +25,7 @@
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="nav-link active">Właścicielom aut</a></li>
                     <li><a href="warsztatom.html" class="nav-link">Warsztatom</a></li>
-                    <li><a href="kontakty.html" class="nav-link">Kontakt</a></li>
+                    <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <span></span>
@@ -41,13 +47,15 @@
                     Miej swoje auto w kieszeni 😉
                 </h1>
                 <p class="cta-subtitle animate-on-scroll">
-                    Kompleksowa aplikacja mobilna do zarządzania Twoim samochodem. Zapisy na przegląd, historia serwisowania, przypomnienia i kontrola nad wydatkami
+                    Aplikacja mobilna do zarządzania Twoim samochodem. Umów się na serwis, śledź historię serwisową, korzystaj z przypomnień i kontroluj wydatki.
                 </p>
                 <div class="hero-buttons animate-fade-in delay-3">
-                    <div class="email-input-group">
-                        <input type="email" id="heroEmail" class="email-input" placeholder="jan.kowalski@gmail.com" required>
-                        <button type="button" class="btn btn-primary btn-attached" onclick="submitWaitlist('heroEmail')">Zapisz się</button>
-                    </div>
+                    <form class="email-input-group waitlist-form" action="forms/waitlist_submit.php" method="post" data-source="Sekcja start">
+                        <input type="email" id="heroEmail" class="email-input" name="email" placeholder="jan.kowalski@gmail.com" required>
+                        <input type="hidden" name="source" value="Sekcja start">
+                        <button type="submit" class="btn btn-primary btn-attached">Zapisz się</button>
+                    </form>
+                    <a href="warsztatom.html" class="btn btn-hero-secondary">Mam warsztat</a>
                 </div>
             </div>
         </div>
@@ -66,7 +74,7 @@
                     <li><span class="map-benefit-arrow"></span><span class="map-benefit-text">Nie chcesz dzwonić do każdego z osobna?</span></li>
                     <li><span class="map-benefit-arrow"></span><span class="map-benefit-text">Nie orientujesz się w cenach usług?</span></li>
                 </ul>
-                <p class="map-highlight-availability animate-on-scroll">Aplikacja Aufix jest dla Ciebie. Dostępna do pobrania na <span class="accent-highlight">początku 2026 roku</span> najpierw w <span class="accent-highlight">Warszawie</span></p>
+                <p class="map-highlight-availability animate-on-scroll">W takim razie aplikacja Aufix jest dla Ciebie. Dostępna do pobrania na <span class="accent-highlight">początku 2026 roku</span></p>
             </div>
         </div>
     </section>
@@ -100,6 +108,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="app-preview-screens">
                     <div class="screens-container">
@@ -118,10 +127,11 @@
             <div class="cta-content">
                 <h2 class="cta-title animate-on-scroll">Zapisz się do końca 2025 roku</h2>
                 <p class="cta-subtitle animate-on-scroll">i otrzymaj dostęp jako pierwszy na początku 2026 roku</p>
-                <div class="email-input-group cta-email-group animate-on-scroll">
-                    <input type="email" id="ctaEmail" class="email-input" placeholder="jan.kowalski@gmail.com" required>
-                    <button type="button" class="btn btn-primary btn-attached" onclick="submitWaitlist('ctaEmail')">Zapisz się</button>
-                </div>
+                <form class="email-input-group cta-email-group waitlist-form animate-on-scroll" action="forms/waitlist_submit.php" method="post" data-source="Sekcja CTA">
+                    <input type="email" id="ctaEmail" class="email-input" name="email" placeholder="jan.kowalski@gmail.com" required>
+                    <input type="hidden" name="source" value="Sekcja CTA">
+                    <button type="submit" class="btn btn-primary btn-attached">Zapisz się</button>
+                </form>
                 <div class="cta-note animate-on-scroll">
                     <span class="note-star">*</span>
                     <span>Aplikacja dla właścicieli aut jest bezpłatna</span>
@@ -134,44 +144,39 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <div class="logo">
-                        <img src="images/car-icon.png" alt="Aufix" class="logo-icon">
+                <div class="footer-left">
+                    <div class="logo footer-logo">
                         <span class="logo-text">AUFIX</span>
+                        <img src="images/car-icon.png" alt="Aufix" class="logo-icon">
                     </div>
                     <p class="footer-description">
                         Nowoczesne rozwiązanie dla warsztatów samochodowych i ich klientów
                     </p>
+                    <div class="footer-made-in"><span class="footer-made-in-text">Zrobione w Polsce</span><span class="footer-flag" role="img" aria-label="Polska"></span></div>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Produkty</h4>
-                    <ul>
-                        <li><a href="index.html">Dla właścicieli aut</a></li>
-                        <li><a href="warsztatom.html">Dla warsztatów</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Firma</h4>
-                    <ul>
-                        <li><a href="index.html">Strona główna</a></li>
-                        <li><a href="kontakty.html">Kontakt</a></li>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Kontakt</h4>
-                    <ul>
-                        <li>📧 biuro@aufix.pl</li>
-                        <li>📞 +48 780 779 546</li>
-                        <li>📍 Warszawa, Polska</li>
-                    </ul>
+
+                <div class="footer-right">
+                    <div class="footer-section">
+                        <h4>Strony</h4>
+                        <ul>
+                            <li><a href="index.html">Właścicielom aut</a></li>
+                            <li><a href="warsztatom.html">Warsztatom</a></li>
+                            <li><a href="kontakt.html">Kontakt</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Kontakt</h4>
+                        <ul>
+                            <li><span aria-hidden="true">📧</span> biuro@aufix.pl</li>
+                            <li><span aria-hidden="true">📞</span> +48 780 779 546</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2025 Aufix. Wszelkie prawa zastrzeżone.</p>
-                <div class="footer-made-in"><span class="footer-flag" role="img" aria-label="Polska"></span>Zrobione w Polsce</div>
+                <p>&copy; 2025 Aufix. Wszelkie prawa zastrzeżone</p>
             </div>
         </div>
     </footer>

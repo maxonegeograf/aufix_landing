@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aufix - system CRM dla warsztatów samochodowych">
-    <title>Warsztatom - Aufix</title>
+    <meta name="description" content="Aufix to nowoczesny system CRM dla warsztatów samochodowych. Pozyskaj nowych klientów, zarządzaj kalendarzem i ofertą serwisową online">
+    <meta name="keywords" content="Aufix dla warsztatów, CRM warsztatowy, rezerwacje online, zarządzanie warsztatem, klienci warsztat samochodowy">
+    <title>Aufix - system CRM i rezerwacje online dla warsztatów</title>
+    <meta property="og:title" content="Aufix dla warsztatów - wygodny CRM system i nowi klienci dla warsztatu">
+    <meta property="og:description" content="Dołącz do Aufix i prowadź warsztat profesjonalnie: rezerwacje online, kalendarz, komunikacja z klientem i oferta usług w jednym miejscu. Zwiększ obroty w 3 miesiące.">
+    <meta property="og:image" content="images/services_image.png">
+    <meta property="og:url" content="https://aufix.pl/warsztatom">
+    <link rel="icon" type="image/png" href="images/car-icon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-warsztaty">
@@ -19,7 +25,7 @@
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="nav-link">Właścicielom aut</a></li>
                     <li><a href="warsztatom.html" class="nav-link active">Warsztatom</a></li>
-                    <li><a href="kontakty.html" class="nav-link">Kontakt</a></li>
+                    <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <span></span>
@@ -35,21 +41,21 @@
         <div class="container">
             <div class="hero-content">
                 <p class="hero-subtitle-top animate-fade-in">
-                    Pół roku za darmo 🔥
+                    3 miesiące za darmo 🔥
                 </p>
                 <h1 class="hero-title hero-title-wrap animate-fade-in delay-1">
                     Zarządzaj warsztatem<br>efektywnie
                 </h1>
                 <p class="cta-subtitle animate-fade-in delay-2">
-                    Zdobądź nowych klientów dzięki Aufix. Zapisz się do końca 2025 roku, aby otrzymać pół roku dostępu do systemu za darmo!
+                    Zdobądź nowych klientów dzięki Aufix. Zapisz się do końca 2025 roku i korzystaj z systemu za darmo przez pierwsze 3 miesiące!
                 </p>
-                <div class="workshop-form animate-fade-in delay-3">
+                <form class="workshop-form animate-fade-in delay-3" id="workshopForm" action="forms/workshop_submit.php" method="post" novalidate>
                     <div class="workshop-input-group">
-                        <input type="text" class="workshop-input" placeholder="Nazwa firmy" aria-label="Nazwa firmy">
-                        <input type="tel" class="workshop-input" placeholder="Numer telefonu" aria-label="Numer telefonu">
+                        <input type="text" class="workshop-input" id="workshopCompany" name="company" placeholder="Nazwa firmy" aria-label="Nazwa firmy" required>
+                        <input type="tel" class="workshop-input" id="workshopPhone" name="phone" placeholder="Numer telefonu" aria-label="Numer telefonu" required data-format="pl-phone">
                     </div>
-                    <button type="button" class="btn btn-primary workshop-submit">Zapisz się</button>
-                </div>
+                    <button type="submit" class="btn btn-primary workshop-submit">Zapisz się</button>
+                </form>
             </div>
         </div>
     </section>
@@ -63,17 +69,17 @@
             </div>
             <ul class="crm-benefits-list animate-on-scroll">
                 <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Przyjmuj i przeglądaj zgłoszenia od klientów</span></li>
-                <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Zarządzaj swoim dniem od 0 do 24 godzin</span></li>
-                <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Dodawaj do 4 stanowisk pracy</span></li>
-                <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Blokuj slot czasowy przed rezerwacją, gdy trzeba</span></li>
+                <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Zarządzaj kalendarzem pracy przez całą dobę</span></li>
+                <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Dodawaj nawet 4 stanowiska pracy</span></li>
+                <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Blokuj terminy, gdy potrzebujesz przerwy</span></li>
                 <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Komunikuj się z klientami i odpowiadaj na pytania</span></li>
                 <li><span class="crm-benefit-arrow"></span><span class="crm-benefit-text">Aktualizuj usługi, które możesz zrealizować</span></li>
             </ul>
             <div class="crm-benefits-rows">
                 <div class="crm-benefits-row animate-on-scroll">
                     <div class="crm-benefits-row-text">
-                        <h3>Wszystkie powiadomienia w jednym miejscu</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae turpis in lectus ullamcorper fermentum vitae sed orci. Integer semper, justo vitae ultricies auctor, mauris nibh tempus massa, eu facilisis tellus nisi ac est.</p>
+                        <h3>Miej powiadomienia pod ręką</h3>
+                        <p>Miej wszystkie powiadomienia i zadania w jednym miejscu. Zarządzaj rezerwacjami, odhaczaj wykonane zlecenia, odpowiadaj na pytania klientów i zachowaj pełną kontrolę nad przepływem pracy.</p>
                     </div>
                     <div class="crm-benefits-row-image">
                         <img src="images/aufix_notifications.png" alt="Powiadomienia Aufix" loading="lazy">
@@ -84,8 +90,8 @@
                         <img src="images/aufix_profile.png" alt="Profil użytkownika Aufix" loading="lazy">
                     </div>
                     <div class="crm-benefits-row-text">
-                        <h3>Profil warsztatu zawsze pod ręką</h3>
-                        <p> </p>
+                        <h3>Zarządzaj swoim profilem</h3>
+                        <p>Twój profil warsztatu jest widoczny w wyszukiwaniach. Aktualizuj godziny pracy, dodawaj usługi, ustaw liczbę stanowisk i prezentuj warsztat dokładnie tak, jak chcesz.</p>
                     </div>
                 </div>
             </div>
@@ -96,14 +102,14 @@
     <section class="pricing-warsztaty">
         <div class="container pricing-layout">
             <div class="pricing-intro animate-on-scroll">
-                <h2 class="pricing-headline">Tylko <span class="pricing-headline-em">99 zł</span> dzieli cię od nowych klientów</h2>
-                <p class="pricing-subheadline">Zapisz się do końca 2025 roku, aby otrzymać pierwsze pół roku za darmo!</p>
+                <h2 class="pricing-headline hero-title hero-title-compact hero-title-wrap">Tylko <span class="pricing-headline-em">99 zł</span> dzieli cię od nowych klientów</h2>
+                <p class="pricing-subheadline">Zapisz się do końca 2025 roku, aby otrzymać pierwsze 3 miesiące za darmo! Twoje benefity to między innymi:</p>
                 <ul class="pricing-benefits">
-                    <li><span class="benefit-dot"></span>CRM z historią klientów</li>
-                    <li><span class="benefit-dot"></span>Inteligentny grafik wizyt</li>
-                    <li><span class="benefit-dot"></span>Zadania dla zespołu</li>
-                    <li><span class="benefit-dot"></span>Automatyczne przypomnienia</li>
-                    <li><span class="benefit-dot"></span>Profil warsztatu online</li>
+                    <li><span class="pricing-benefit-arrow"></span><span class="pricing-benefit-text">Nowi klienci</span></li>
+                    <li><span class="pricing-benefit-arrow"></span><span class="pricing-benefit-text">Kompleksowy system CRM</span></li>
+                    <li><span class="pricing-benefit-arrow"></span><span class="pricing-benefit-text">Zarządzanie czasem</span></li>
+                    <li><span class="pricing-benefit-arrow"></span><span class="pricing-benefit-text">Przypomnienia</span></li>
+                    <li><span class="pricing-benefit-arrow"></span><span class="pricing-benefit-text">Łatwy kontakt z klientami</span></li>
                 </ul>
             </div>
             <div class="pricing-cards animate-on-scroll">
@@ -112,10 +118,10 @@
                     <h3 class="pricing-title">Dla sprytnych</h3>
                     <p class="pricing-tagline">Wejście do Aufix bez ryzyka</p>
                     <div class="pricing-price pricing-price-highlight">0 zł<span class="pricing-period">/mies.</span></div>
-                    <div class="pricing-note">przez pierwsze 6 miesięcy</div>
+                    <div class="pricing-note">przez pierwsze 3 miesiące</div>
                     <div class="pricing-divider"></div>
                     <p class="pricing-regular">Potem: <strong>99 zł / mies.</strong></p>
-                    <button class="btn btn-primary pricing-btn" id="pricingEarlyBirdBtn">Zapisz sie</button>
+                    <button class="btn btn-primary pricing-btn" id="pricingEarlyBirdBtn">Zapisz się</button>
                 </article>
                 <article class="pricing-card pricing-card-featured">
                     <div class="pricing-badge badge-highlight">Standard od 2026</div>
@@ -131,63 +137,43 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="contact">
-        <div class="container">
-            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <h2 class="section-title">Zainteresowany?</h2>
-                <p class="section-subtitle">Skontaktuj się z nami i otrzymaj bezpłatną wersję demo</p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="kontakty.html" class="btn btn-primary">Skontaktuj się z nami</a>
-                    <a href="index.html" class="btn btn-secondary">Strona główna</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <div class="logo">
-                        <img src="images/car-icon.png" alt="Aufix" class="logo-icon">
+                <div class="footer-left">
+                    <div class="logo footer-logo">
                         <span class="logo-text">AUFIX</span>
+                        <img src="images/car-icon.png" alt="Aufix" class="logo-icon">
                     </div>
                     <p class="footer-description">
                         Nowoczesne rozwiązanie dla warsztatów samochodowych i ich klientów
                     </p>
+                    <div class="footer-made-in"><span class="footer-made-in-text">Zrobione w Polsce</span><span class="footer-flag" role="img" aria-label="Polska"></span></div>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>Produkty</h4>
-                    <ul>
-                        <li><a href="index.html">Dla właścicieli aut</a></li>
-                        <li><a href="warsztatom.html">Dla warsztatów</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Firma</h4>
-                    <ul>
-                        <li><a href="index.html">Strona główna</a></li>
-                        <li><a href="kontakty.html">Kontakt</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Kontakt</h4>
-                    <ul>
-                        <li>📧 info@aufix.pl</li>
-                        <li>📞 +48 123 456 789</li>
-                        <li>📍 Warszawa, Polska</li>
-                    </ul>
+
+                <div class="footer-right">
+                    <div class="footer-section">
+                        <h4>Strony</h4>
+                        <ul>
+                            <li><a href="index.html">Właścicielom aut</a></li>
+                            <li><a href="warsztatom.html">Warsztatom</a></li>
+                            <li><a href="kontakt.html">Kontakt</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Kontakt</h4>
+                        <ul>
+                            <li><span aria-hidden="true">📧</span> biuro@aufix.pl</li>
+                            <li><span aria-hidden="true">📞</span> +48 780 779 546</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2024 Aufix. Wszelkie prawa zastrzeżone.</p>
-                <div class="footer-made-in"><span class="footer-flag" role="img" aria-label="Polska"></span>Zrobione w Polsce</div>
+                <p>&copy; 2025 Aufix. Wszelkie prawa zastrzeżone</p>
             </div>
         </div>
     </footer>
