@@ -887,26 +887,23 @@ b {
     margin: 5rem auto 0;
     list-style: none;
     padding: 0;
-    max-width: 760px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 3rem;
 }
 
 .crm-benefits-list li {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
     justify-content: flex-start;
-    transition: transform 1s ease;
+    transition: transform 0.3s ease;
 }
 
 .crm-benefits-list li:hover {
-    transform: translateX(50px);
+    transform: translateX(10px);
 }
 
 .crm-preview {
@@ -931,6 +928,11 @@ b {
     display: flex;
     justify-content: center;
 }
+
+.crm-preview-image picture {
+    display: contents;
+}
+
 .crm-preview-img {
     width: 100%;
     max-width: 1035px;
@@ -949,7 +951,7 @@ b {
 
 .crm-benefit-text {
     flex: 1;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--text-light);
     font-weight: 400;
     line-height: 1.5;
@@ -1662,7 +1664,8 @@ section {
         margin: 3rem auto 0;
         gap: 1.25rem;
         padding: 0 1rem;
-        align-items: center;
+        grid-template-columns: 1fr;
+        max-width: 600px;
     }
 
     .map-highlight-list li {
@@ -2338,6 +2341,21 @@ body.landing-page {
     .landing-header .logo-icon {
         width: 35px;
         height: 35px;
+    }
+
+    .landing-header .btn-contact-landing {
+        color: #1c1d22;
+        border-color: rgba(28, 29, 34, 0.2);
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    .landing-benefits {
+        display: inline-block;
+    }
+
+    .landing-benefits li {
+        justify-content: flex-start;
+        width: fit-content;
     }
 }
 
